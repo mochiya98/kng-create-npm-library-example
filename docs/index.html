@@ -1,0 +1,54 @@
+<!DOCTYPE html><html lang="ja"><head>
+<meta charset="UTF-8">
+<title>kng-create-npm-library-example</title>
+<style>
+*{margin:0;padding:0;}body{background-color:#222;line-height:1.5;color:#fff;}body>*{margin:1em;}
+code{border:1px solid #6c0;}code,p{padding:1em;}
+h1{line-height:1;font-size:25px;margin:0;padding:1em;border-bottom:1px solid #6c0;}
+h2{line-height:1;font-size:20px;}h2 a{color:inherit;}
+</style>
+</head><body>
+<h1>Usage examples</h1>
+<h2><a href="./usage_amd.html">Asynchronous Module Definition</a></h2>
+<pre><code class="html">&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+requirejs.config({
+  &quot;paths&quot;: {
+    &quot;example&quot;: &quot;../dist/example.amd&quot;
+  }
+});
+requirejs([&quot;example&quot;], ({hello}) =&gt; {
+  hello(&quot;Famichiki&quot;);
+});
+&lt;/script&gt;</code></pre>
+<h2>CommonJS (Node.js)</h2>
+<pre><code class="javascript">// CommonJS does not work on browser.
+const {hello} = require("../dist/example.cjs.js");
+
+hello("Famichiki");</code></pre>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+<h2><a href="./usage_esm.html">ES Modules</a></h2>
+<pre><code class="html">&lt;script type=&quot;module&quot;&gt;
+import {hello} from &quot;../dist/example.esm.js&quot;;
+
+hello(&quot;Famichiki&quot;);
+&lt;/script&gt;</code></pre>
+<h2><a href="./usage_iife.html">IIFE(Immediately Invoked Function Expression)</a></h2>
+<pre><code class="html">&lt;script src=&quot;../dist/example.iife.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+Example.hello(&quot;Famichiki&quot;);
+&lt;/script&gt;</code></pre>
+<h2><a href="./usage_umd.html">Universal Module Definition</a></h2>
+<pre><code class="html">&lt;script src=&quot;../dist/example.umd.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+Example.hello(&quot;Famichiki&quot;);
+&lt;/script&gt;</code></pre>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/monokai.min.css">
+</body></html>

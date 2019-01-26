@@ -1,0 +1,28 @@
+{
+  "name": "kng-create-npm-library-example",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Yukimasa Funaoka <yukimasafunaoka@gmail.com>",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/example.umd.js",
+  "module": "dist/example.esm.js",
+  "unpkg": "dist/example.umd.min.js",
+  "jsDelivr": "dist/example.umd.min.js",
+  "scripts": {
+    "prepare": "npm run build",
+    "rollup": "npx rollup --input src/example.js -d dist --name Example --no-strict",
+    "build:amd": "npm run rollup -- --format amd --entryFileNames \"[name].amd.js\" --no-esModule",
+    "build:cjs": "npm run rollup -- --format cjs --entryFileNames \"[name].cjs.js\" --no-esModule",
+    "build:esm": "npm run rollup -- --format esm --entryFileNames \"[name].esm.js\"",
+    "build:iife": "npm run rollup -- --format iife --entryFileNames \"[name].iife.js\"",
+    "build:umd": "npm run rollup -- --format umd --entryFileNames \"[name].umd.js\"",
+    "build:umd_min": "npm run rollup -- --format umd --entryFileNames \"[name].umd.min.js\" --compact",
+    "build": "npx npm-run-all -s build:amd build:cjs build:esm build:iife build:umd build:umd_min"
+  },
+  "dependencies": {
+    "npm-run-all": "4.1.5",
+    "rollup": "1.1.2"
+  }
+}
