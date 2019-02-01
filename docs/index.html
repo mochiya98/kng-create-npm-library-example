@@ -14,7 +14,7 @@ h2{line-height:1;font-size:20px;}h2 a{color:inherit;}
 &lt;script&gt;
 requirejs.config({
   &quot;paths&quot;: {
-    &quot;example&quot;: &quot;../dist/example.amd&quot;
+    &quot;example&quot;: &quot;./dist/example.amd&quot;
   }
 });
 requirejs([&quot;example&quot;], ({hello}) =&gt; {
@@ -23,7 +23,7 @@ requirejs([&quot;example&quot;], ({hello}) =&gt; {
 &lt;/script&gt;</code></pre>
 <h2>CommonJS (Node.js)</h2>
 <pre><code class="javascript">// CommonJS does not work on browser.
-const {hello} = require("../dist/example.cjs.js");
+const {hello} = require("./dist/example.cjs.js");
 
 hello("Famichiki");</code></pre>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
@@ -36,17 +36,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
 </script>
 <h2><a href="./usage_esm.html">ES Modules</a></h2>
 <pre><code class="html">&lt;script type=&quot;module&quot;&gt;
-import {hello} from &quot;../dist/example.esm.js&quot;;
+import {hello} from &quot;./dist/example.esm.js&quot;;
 
 hello(&quot;Famichiki&quot;);
 &lt;/script&gt;</code></pre>
 <h2><a href="./usage_iife.html">IIFE(Immediately Invoked Function Expression)</a></h2>
-<pre><code class="html">&lt;script src=&quot;../dist/example.iife.js&quot;&gt;&lt;/script&gt;
+<pre><code class="html">&lt;script src=&quot;./dist/example.iife.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
 Example.hello(&quot;Famichiki&quot;);
 &lt;/script&gt;</code></pre>
 <h2><a href="./usage_umd.html">Universal Module Definition</a></h2>
-<pre><code class="html">&lt;script src=&quot;../dist/example.umd.js&quot;&gt;&lt;/script&gt;
+<pre><code class="html">&lt;script src=&quot;./dist/example.umd.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
 Example.hello(&quot;Famichiki&quot;);
 &lt;/script&gt;</code></pre>
